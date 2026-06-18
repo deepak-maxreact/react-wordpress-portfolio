@@ -8,7 +8,7 @@ const [search, setSearch] = useState("");
 const [technology, setTechnology] = useState("All");  
 
   useEffect(() => {
-    fetch("https://bin-roger-issued-broadcasting.trycloudflare.com/react-wp/wp-json/wp/v2/projects?_embed")
+   fetch(`${import.meta.env.VITE_API_URL}/projects?_embed`)
       .then((res) => res.json())
       .then((data) => setProjects(data));
   }, []);
