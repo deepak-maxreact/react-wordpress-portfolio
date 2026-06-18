@@ -7,8 +7,8 @@ function ProjectDetail() {
 
   useEffect(() => {
     fetch(
-      `http://localhost/react-wp/wp-json/wp/v2/projects/${id}?_embed`
-    )
+  `https://bin-roger-issued-broadcasting.trycloudflare.com/react-wp/wp-json/wp/v2/projects/${id}?_embed`
+)
       .then((res) => res.json())
       .then((data) => setProject(data));
   }, [id]);

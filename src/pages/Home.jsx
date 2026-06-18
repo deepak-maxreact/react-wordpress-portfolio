@@ -8,7 +8,7 @@ const [search, setSearch] = useState("");
 const [technology, setTechnology] = useState("All");  
 
   useEffect(() => {
-   fetch(`${import.meta.env.VITE_API_URL}/projects?_embed`)
+    fetch(`${import.meta.env.VITE_API_URL}/projects?_embed`)
       .then((res) => res.json())
       .then((data) => setProjects(data));
   }, []);
