@@ -7,11 +7,11 @@ function Home() {
 const [search, setSearch] = useState("");
 const [technology, setTechnology] = useState("All");  
 
-  useEffect(() => {
-    fetch(`${import.meta.env.VITE_API_URL}/projects?_embed`)
-      .then((res) => res.json())
-      .then((data) => setProjects(data));
-  }, []);
+ useEffect(() => {
+  fetch("https://bin-roger-issued-broadcasting.trycloudflare.com/react-wp/wp-json/wp/v2/projects?_embed")
+    .then((res) => res.json())
+    .then((data) => setProjects(data));
+}, []);
 
   if (!projects.length) {
     return <h2>Loading...</h2>;
