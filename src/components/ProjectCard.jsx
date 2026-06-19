@@ -2,9 +2,14 @@ import { Link } from "react-router-dom";
 
 function ProjectCard({ project }) {
 
-  const image =
-    project._embedded?.["wp:featuredmedia"]?.[0]?.source_url;
+ const image =
+  project._embedded?.["wp:featuredmedia"]?.[0]?.source_url
+    ?.replace(
+      "http://localhost/react-wp",
+      "https://safari-even-adventures-sympathy.trycloudflare.com/react-wp"
+    );
 
+console.log("IMAGE URL:", image);
   return (
     <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition duration-300">
 

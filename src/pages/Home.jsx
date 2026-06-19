@@ -6,6 +6,11 @@ function Home() {
   const [projects, setProjects] = useState([]);
 const [search, setSearch] = useState("");
 const [technology, setTechnology] = useState("All");  
+  
+
+console.log("API URL:", import.meta.env.VITE_API_BASE);
+
+
 
  useEffect(() => {
   fetch(`${import.meta.env.VITE_API_BASE}/projects?_embed`)
