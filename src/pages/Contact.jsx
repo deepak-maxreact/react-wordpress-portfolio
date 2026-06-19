@@ -277,6 +277,7 @@ onChange={(e) => {
   value={formData.address}
   onChange={handleChange}
   placeholder="Enter Full Address"
+  required
   className="w-full border border-gray-200 rounded-xl px-4 py-3"
 />
   </div>
