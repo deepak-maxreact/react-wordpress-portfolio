@@ -35,15 +35,15 @@ const handleSubmit = async (e) => {
 
   try {
     const response = await fetch(
-      "http://localhost/react-wp/wp-json/portfolio/v1/contact",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      }
-    );
+  import.meta.env.VITE_CONTACT_API,
+  {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(formData),
+  }
+);
 
     const data = await response.json();
 
