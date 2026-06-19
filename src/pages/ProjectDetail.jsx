@@ -6,8 +6,8 @@ function ProjectDetail() {
   const [project, setProject] = useState(null);
 
   useEffect(() => {
-    fetch(
-  `https://bin-roger-issued-broadcasting.trycloudflare.com/react-wp/wp-json/wp/v2/projects/${id}?_embed`
+   fetch(
+  `${import.meta.env.VITE_API_BASE}/projects/${id}?_embed`
 )
       .then((res) => res.json())
       .then((data) => setProject(data));
