@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import ProjectCard from "../components/ProjectCard";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
@@ -67,12 +68,12 @@ function Home() {
             >
               View Projects
             </a>
-            <a
-              href="/contact"
+            <Link
+              to="/contact"
               className="rounded-xl border border-white/40 px-7 py-3 font-semibold text-white transition hover:bg-white/10"
             >
               Get in Touch
-            </a>
+            </Link>
           </div>
         </div>
 
