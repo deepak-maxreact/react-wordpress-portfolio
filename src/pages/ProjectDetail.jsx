@@ -70,6 +70,16 @@ function ProjectDetail() {
   const acf = project.acf ?? {};
   const image = project._embedded?.["wp:featuredmedia"]?.[0]?.source_url;
 
+  // Only treat a URL as usable if it's an external http(s) link and not the
+  // WordPress REST API endpoint (some projects have bad project_url data).
+  const isUsableUrl = (url) =>
+    typeof url === "string" &&
+    /^https?:\/\//.test(url) &&
+    !url.includes("/wp-json/");
+
+  const projectUrl = isUsableUrl(acf.project_url) ? acf.project_url : null;
+  const githubUrl = isUsableUrl(acf.github_url) ? acf.github_url : null;
+
   const relatedProjects = allProjects
     .filter(
       (p) =>
@@ -152,10 +162,11 @@ function ProjectDetail() {
             </div>
 
             {/* Action buttons */}
+            {(projectUrl || githubUrl) && (
             <div className="mt-8 flex flex-wrap gap-4">
-              {acf.project_url && (
+              {projectUrl && (
                 <a
-                  href={acf.project_url}
+                  href={projectUrl}
                   target="_blank"
                   rel="noreferrer"
                   className="inline-flex items-center gap-2 rounded-xl bg-indigo-600 px-6 py-3 font-semibold text-white shadow-lg shadow-indigo-600/30 transition hover:-translate-y-0.5 hover:bg-indigo-700"
@@ -163,9 +174,9 @@ function ProjectDetail() {
                   🔗 Visit Project
                 </a>
               )}
-              {acf.github_url && (
+              {githubUrl && (
                 <a
-                  href={acf.github_url}
+                  href={githubUrl}
                   target="_blank"
                   rel="noreferrer"
                   className="inline-flex items-center gap-2 rounded-xl border border-slate-300 bg-white px-6 py-3 font-semibold text-slate-800 transition hover:-translate-y-0.5 hover:border-slate-400"
@@ -174,6 +185,7 @@ function ProjectDetail() {
                 </a>
               )}
             </div>
+            )}
           </div>
         </article>
 
