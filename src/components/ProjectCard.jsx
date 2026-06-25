@@ -6,7 +6,7 @@ function ProjectCard({ project }) {
   project._embedded?.["wp:featuredmedia"]?.[0]?.source_url
     ?.replace(
       "http://localhost/react-wp",
-      "https://safari-even-adventures-sympathy.trycloudflare.com/react-wp"
+      "http://127.0.0.1/react-wp"
     );
 
 console.log("IMAGE URL:", image);
